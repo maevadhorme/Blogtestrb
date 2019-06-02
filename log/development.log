@@ -1377,3 +1377,35 @@ Processing by WelcomeController#index as HTML
 Completed 200 OK in 20ms (Views: 19.1ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2019-06-02 16:27:01 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/maevactou/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 293ms (Views: 285.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-06-02 16:27:04 +0200
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:10
+  Rendered articles/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 41ms (Views: 26.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/articles/1" for ::1 at 2019-06-02 16:27:07 +0200
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:15
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 1]]
+  ↳ app/views/articles/show.html.erb:12
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (68.0ms)
+  Rendered articles/show.html.erb within layouts/application (93.1ms)
+Completed 200 OK in 128ms (Views: 107.1ms | ActiveRecord: 0.9ms)
+
+
